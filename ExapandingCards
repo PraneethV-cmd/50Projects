@@ -1,0 +1,117 @@
+const panels = document.querySelectorAll('.panel')
+
+panels.forEach((panel)=>{
+    panel.addEventListener('click',()=>{
+        removeActiveClasses()
+        panel.classList.add('active')
+    })
+})
+
+function removeActiveClasses(){
+    panels.forEach(panel=>{
+        panel.classList.remove('active')
+    })
+}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    width: 80vw;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position:  relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 23px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex: 7;
+}
+
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width: 480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),:nth-of-type(5){
+        display: none;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <title>Expanding cards</title>
+</head>
+<body>
+    <div class="container">
+        <div class="panel active" style="background-image: url(https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png);">
+            <h3>God of War Ragnarok</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://cdnb.artstation.com/p/assets/images/images/046/713/895/4k/keita-okada-eldenring-21-4k.jpg?1645778566);">
+            <h3>Elden ring</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://images2.alphacoders.com/698/thumb-1920-698414.jpg);">
+            <h3>Dark Souls 3</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://media.wired.com/photos/5955c1dc5992c54331ac192f/master/w_2560%2Cc_limit/bloodborne_the_old_hunters_V2.jpg);">
+            <h3>Bloodborne</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_15f0e9982621aed44900215ad283811af0779b1d.1920x1080.jpg?t=1678991267);">
+            <h3>Sekiro: Shadows Die twice</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://wallpapercave.com/wp/wp6448284.jpg);">
+            <h3>The Last of Us</h3>
+        </div>
+        <div class="panel active" style="background-image: url(https://www.digitaltrends.com/wp-content/uploads/2016/05/Uncharted-4-Featured.jpg?resize=625%2C417&p=1);">
+            <h3>UNcharted 4: A Theif's End</h3>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
